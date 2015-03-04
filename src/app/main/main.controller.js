@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('webfactory').controller('MainController', ['$scope', '$http', '$location', '$socket', function ($scope, $http, $location, $socket) {
+angular.module('webfactory').controller('MainController', function ($scope, $http, $location, $socket) {
   $scope.containers = [];
 
   socket.on('statechange', function(data) {
@@ -28,4 +28,4 @@ angular.module('webfactory').controller('MainController', ['$scope', '$http', '$
       alert('Submitting form failed!');
     });
   }
-}]);
+});
