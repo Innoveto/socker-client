@@ -10,9 +10,19 @@
 
   <div class="row">
     <div class="well well-lg">
-      <form name="containerForm" ng-controller="FormController">
-        <label>Container name:</label>
-        <input type="text" ng-model="containerName" name="containerName" required>
+      <form name="containerForm" ng-controller="MainController">
+        <div>
+          <label>Node title:</label>
+          <input type="text" ng-model="nodeTitle" name="nodeTitle" required>
+        </div>
+        <div>
+          <label>Container name:</label>
+          <input type="text" ng-model="containerName" name="containerName" required>
+        </div>
+        <div>
+          <label>Site email:</label>
+          <input type="text" ng-model="siteEmail" name="siteEmail" required>
+        </div>
         <button type="submit" class="btn btn-default btn-lg" ng-click="submitTheForm()">Create new container</button>
       </form>
     </div>
