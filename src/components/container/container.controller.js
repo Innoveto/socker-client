@@ -2,7 +2,7 @@
 
 angular.module('webfactory').controller('ContainerController', function($scope, $routeParams, socket) {
 
-  var containerName = '/' + $routeParams.containerName;
+  var containerName = $routeParams.containerName;
 
   $scope.container = {
     name: $routeParams.containerName,

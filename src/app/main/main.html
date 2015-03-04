@@ -1,11 +1,15 @@
 <div class="container">
 
-  <div class="jumbotron text-center">
-    <h1>Hello</h1>
-  </div>
+
 
   <div class="row">
-    TODO: list existing containers
+    <div class="jumbotron text-center">
+      <h1>Hello</h1>
+    </div>
+  </div>
+
+  <div class="row" ng-repeat="container in containers">
+    <a ng-href="#/container/{{container.Name}}">{{container.Name}}</a>
   </div>
 
   <div class="row">
