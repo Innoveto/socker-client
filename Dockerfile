@@ -12,9 +12,4 @@ RUN chmod +x /tmp/start.sh
 
 CMD ./tmp/start.sh
 
-# Install app dependencies
-RUN cd /src; npm install
-RUN cd /src; bower install
 EXPOSE  2001
-
-CMD ["gulp", "serve"]
