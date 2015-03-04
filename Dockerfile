@@ -1,16 +1,15 @@
-FROM    centos:centos6
+FROM ubuntu:13.10
 
 # Enable EPEL for Node.js
-RUN     rpm -Uvh http://download.fedoraproject.org/pub/epel/6/i386/epel-release-6-8.noarch.rpm
+RUN apt-get update
+
 # Install Node.js and npm
-RUN     yum install -y npm
+RUN apt-get install -y nodejs npm git git-core
 
-# Bundle app source
-COPY . /src
+ADD start.sh /tmp/
 
-# Install app dependencies
-RUN cd /src; npm install
-RUN cd /src; bower install
+RUN chmod +x /tmp/start.sh
+
+CMD ./tmp/start.sh
+
 EXPOSE  2001
-
-CMD ["gulp", "serve"]
