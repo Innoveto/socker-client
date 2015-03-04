@@ -1,6 +1,14 @@
 'use strict';
 
-angular.module('webfactory').controller('MainController', ['$scope', '$http', '$location', function ($scope, $http, $location) {
+angular.module('webfactory').controller('MainController', ['$scope', '$http', '$location', function ($scope, $http, $location, $socket) {
+  $scope.containers = [];
+
+  socket.on('statechange', function(data) {
+    $scope.$apply(function () {
+      $scope.containers = data;
+    });
+  });
+
   $scope.submitTheForm = function() {
     /* jshint camelcase: false */
     console.log('Submitting form');
