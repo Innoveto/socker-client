@@ -7,10 +7,15 @@ angular.module('webfactory').controller('ContainerController', function($scope, 
     State: null
   };
 
-  socket.on('statechange:' + containerName, function (data) {
-    $scope.container.name = data.Name;
-    $scope.container.id = data.Id;
-    $scope.container.state = data.State;
-  });
+  function update(data) {
+    $scope.$apply(function () {
+      $scope.container.name = data.Name;
+      $scope.container.id = data.Id;
+      $scope.container.state = data.State;
+    });
+  }
+
+  socket.emit('state:/' + containerName, update);
+  socket.on('statechange:/' + containerName, update);
 
 });
