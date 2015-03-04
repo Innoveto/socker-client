@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('webfactory').controller('MainController', ['$scope', '$http', '$location', function ($scope, $http, $location, $socket) {
+angular.module('webfactory').controller('MainController', ['$scope', '$http', '$location', '$socket', function ($scope, $http, $location, $socket) {
   $scope.containers = [];
 
   socket.on('statechange', function(data) {
