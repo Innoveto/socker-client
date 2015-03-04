@@ -1,7 +1,9 @@
 'use strict';
 
 angular.module('webfactory').controller('ContainerController', function($scope, $routeParams, socket) {
-  var containerName = $routeParams.containerName;
+
+  var containerName = '/' + $routeParams.containerName;
+
   $scope.container = {
     name: $routeParams.containerName,
     State: null
@@ -15,7 +17,8 @@ angular.module('webfactory').controller('ContainerController', function($scope, 
     });
   }
 
-  socket.emit('state:/' + containerName, update);
-  socket.on('statechange:/' + containerName, update);
+  socket.on('statechange:' + containerName, update);
+
+  socket.emit('getstate', containerName);
 
 });
